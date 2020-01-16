@@ -1,6 +1,7 @@
-<h1>Welcome Home</h1>
-
+{{> header}}
+<hr>
 <section>
+    <h3>This is my users Data</h3>
     <ul>
         {{#each users}}
         {{!-- 1.way --}}
@@ -62,10 +63,11 @@
         {{/each}}
     </ul>
 </section>
-
 <div class="cards-container">
     {{!-- {{#each users}} --}}
     {{!-- {{this.name }} --}}
     <br>
     {{!-- {{/each}} --}}
 </div>
+<hr>
+{{> footer}}
