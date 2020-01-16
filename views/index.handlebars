@@ -57,11 +57,30 @@
         {{!-- 3rd layer - now geo object inside address object inside of 1st object --}}
         {{!--Conclusion: every layer when we use 'this' keyword it refers to an object. So when we say this it means object --}}
         {{!-- we can also use slash / instead of dot but I think better practice use dot--}}
-        <li> {{key2}}: {{ val2}} </li>
+        {{!-- <li> {{key2}}: {{ val2}} </li> --}}
         {{/each}}
         {{/each}}
         {{/each}}
     </ul>
+
+    {{!-- lookup --}}
+    <ul>
+        <p> {{lookup users.[0] 'username'}} </p>
+        <p> {{lookup users.[1] 'name'}} </p>
+        <p> {{lookup users.[2] 'phone'}} </p>
+        <p> {{lookup users.[3].company 'name'}} </p>
+    </ul>
+
+    <h3>Calc: {{calc 9}} </h3>
+    <h3>list: </h3>
+    {{#list title}}
+    {{test}}
+    {{/list}}
+
+    <h3>Users list</h3>
+    {{#usersList users}}
+    id: {{id}} name: {{name}}
+    {{/usersList}}
 </section>
 <div class="cards-container">
     {{!-- {{#each users}} --}}
