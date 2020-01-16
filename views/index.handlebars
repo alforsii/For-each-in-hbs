@@ -1,0 +1,71 @@
+<h1>Welcome Home</h1>
+
+<section>
+    <ul>
+        {{#each users}}
+        {{!-- 1.way --}}
+        {{!-- <li>{{this.name}}</li> --}}
+        {{!-- 2.way --}}
+        {{!-- <li> {{.}} </li> --}}
+        {{/each}}
+    </ul>
+    <ul>
+        {{#each users as |value key|}}
+        {{!-- 1.way --}}
+        {{!-- <li> {{key}}: {{value.name}} </li> --}}
+        {{/each}}
+    </ul>
+    <ul>
+        {{#each users }}
+        {{!-- 1.way --}}
+        {{!-- <li> {{@key}}: {{ this/name}} </li> --}}
+        {{/each}}
+    </ul>
+    <ul>
+        {{#each users }}
+        {{!-- 1.way --}}
+        {{#each this}}
+        {{!-- <li> {{@key}}: {{ this}} </li> --}}
+        {{/each}}
+        {{/each}}
+    </ul>
+    <ul>
+        {{#each users }}
+        {{!-- 1.way --}}
+        {{#each this as |val key| }}
+        {{!-- <li> {{key}}: {{ val}} </li> --}}
+        {{/each}}
+        {{/each}}
+    </ul>
+    <ul>
+        {{#each users }}
+        {{!-- 1.way --}}
+        {{#each this.address as |val key| }}
+        {{!-- <li> {{key}}: {{ val}} </li> --}}
+        {{/each}}
+        {{/each}}
+    </ul>
+    <ul>
+        {{#each users.[0] }}
+        {{!--1st layer of 1st Whole object --}}
+        {{!-- <li> {{@key}}: {{this}} </li> --}}
+        {{#each this as |val1 key1| }}
+        {{!--2nd layer - object address inside the 1st object --}}
+        {{!-- <li> {{key1}}: {{ val1}} </li> --}}
+        {{#each this as |val2 key2|}}
+        {{!-- 3rd layer - now geo object inside address object inside of 1st object --}}
+        {{!--Conclusion: every layer when we use 'this' keyword it refers to an object. So when we say this it means object --}}
+        {{!-- we can also use slash / instead of dot but I think better practice use dot--}}
+        <li> {{key2}}: {{ val2}} </li>
+        {{/each}}
+        {{/each}}
+        {{/each}}
+    </ul>
+</section>
+
+<div class="cards-container">
+    {{!-- {{#each users}} --}}
+    {{!-- {{this.name }} --}}
+    <br>
+    {{!-- {{/each}} --}}
+</div>
