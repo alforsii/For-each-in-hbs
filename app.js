@@ -5,6 +5,7 @@ const users = require('./users');
 
 const app = express();
 const PORT = process.env.PORT || 5500;
+app.use(express.static('public'));
 
 // //1.
 // //************************************************************************************ */
@@ -53,6 +54,7 @@ app.get('/', (req, res) => {
     title: 'Home',
     greeting: 'Hello and Welcome to Home page',
     users,
+    myStyle: 'css/home.css',
   });
 });
 app.get('/about', (req, res) => {
@@ -60,12 +62,14 @@ app.get('/about', (req, res) => {
     title: 'About',
     greeting: 'This is About me',
     description: 'This is learning course about partials in handlebars',
+    myStyle: 'css/about.css',
   });
 });
 app.get('/contacts', (req, res) => {
   res.render('contacts', {
     title: 'Contacts',
     greeting: 'Hello World and How can I help you?',
+    myStyle: 'css/contacts.css',
   });
 });
 
